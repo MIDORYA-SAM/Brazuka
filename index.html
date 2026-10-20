@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#10251c">
+  <meta name="description" content="Brasil — uma praça virtual 3D para encontrar pessoas e se manifestar.">
+  <title>BRASIL — Praça Virtual</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="game"></div>
+  <div class="topbar">
+    <div class="brand"><span class="brand-mark">B</span><div><strong>BRASIL</strong><small>PRAÇA VIRTUAL</small></div></div>
+    <div class="online-pill"><span class="live-dot"></span><span id="onlineCount">Conectando...</span></div>
+    <button id="menuButton" class="icon-button" aria-label="Abrir menu">☰</button>
+  </div>
+
+  <div class="left-panel glass">
+    <div class="eyebrow">SEU PERSONAGEM</div>
+    <div class="player-line"><span class="avatar-dot"></span><div><strong id="playerName">Manifestante</strong><small id="connectionStatus">Conectando ao servidor</small></div></div>
+    <label for="bannerInput">Texto da sua bandeira</label>
+    <div class="banner-row"><input id="bannerInput" maxlength="32" value="BRASIL" placeholder="Escreva uma frase"><button id="bannerButton">OK</button></div>
+    <p class="tip">Explore a praça, conheça outros jogadores e converse.</p>
+  </div>
+
+  <div class="right-panel glass">
+    <div class="panel-title"><span>CONVERSA DA PRAÇA</span><span class="chat-dot"></span></div>
+    <div id="chatMessages" class="chat-messages"><div class="system-message">Bem-vindo à praça virtual Brasil.</div></div>
+    <form id="chatForm" class="chat-form">
+      <input id="chatInput" maxlength="180" autocomplete="off" placeholder="Escreva uma mensagem...">
+      <button aria-label="Enviar mensagem">➤</button>
+    </form>
+  </div>
+
+  <div class="bottom-hint"><span class="key">W</span><span class="key">A</span><span class="key">S</span><span class="key">D</span> ou setas para andar <span class="hint-divider">·</span> Arraste para olhar</div>
+
+  <div id="mobileControls" class="mobile-controls">
+    <div id="joystick" class="joystick"><div id="stick" class="stick"></div></div>
+    <div class="mobile-look">Arraste a tela para olhar</div>
+  </div>
+
+  <div id="nameModal" class="modal-backdrop">
+    <form id="nameForm" class="name-card">
+      <div class="modal-logo">B</div>
+      <div class="eyebrow">BEM-VINDO À PRAÇA</div>
+      <h1>Entre no <span>Brasil.</span></h1>
+      <p>Escolha um nome para aparecer para os outros jogadores.</p>
+      <input id="nameInput" maxlength="18" required placeholder="Seu nome" value="Visitante">
+      <button class="primary-button" type="submit">ENTRAR NA PRAÇA <span>→</span></button>
+      <small>Protótipo multiplayer · Respeite os outros jogadores.</small>
+    </form>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module" src="/game.js"></script>
+</body>
+</html>
